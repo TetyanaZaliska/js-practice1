@@ -1,60 +1,44 @@
 "use strict";
 
-if (4 === 4) {
-    console.log("Ok!");
-} else {
-    console.log("Error!");
+let num = 10;
+
+//Function Declaration
+function showFirstMessage(text) {
+    console.log(text);
+    let num = 20;
+    console.log(num);
 }
 
-// const num = 50;
+showFirstMessage('Hello world!');
+console.log(num);
 
-// if (num < 49) {
-//     console.log("Error!");
-// } else if (num > 100) {
-//     console.log("Too many!");
-// } else {
-//     console.log("Ok!");
+// console.log(calc(4, 3));
+// console.log(calc(5, 6));
+// console.log(calc(10, 6));
+
+// function calc(a, b) {
+//     return (a + b);
 // }
 
-// (num === 50) ? console.log("Ok!") : console.log("Error!");
-
-
-// const num = 50;
-
-// //switch - строгое равенство ===
-// switch (num) {
-//     case 49: 
-//         console.log("Incorrect!");
-//         break;
-//     case 100:
-//         console.log("Incorrect!");
-//         break;
-//     case "50": // этот код не выполнится так как "50" - это строка
-//         console.log("Exactly!");
-//         break;
-//     default:
-//         console.log("Not this time");
-// }
-
-
-let num = 50;
-
-// while (num <= 55) {
-//     console.log(num);
-//     num++;
-// }
-
-// do {
-//     console.log(num);
-//     num++;
-// } 
-// while (num < 55);
-
-for (let i = 1; i < 10; i++) {
-    if (i === 6) {
-        //break;
-        continue;
-    }
-
-    console.log(i); 
+function ret() {
+    let num = 15;
+    return num; 
 }
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+//Function Expression
+const logger = function() {
+    console.log('Hello');
+};
+
+logger();
+
+//Стрелочные функции
+const calc = (a, b) => a + b;
+//const calc = (a, b) => { 
+//    console.log('1');
+//    return a + b; 
+//}
+//const double = a => a * 2;
