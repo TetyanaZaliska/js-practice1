@@ -42,3 +42,39 @@ const calc = (a, b) => a + b;
 //    return a + b; 
 //}
 //const double = a => a * 2;
+//const noParams = () => 5 * 2;
+
+//lesson 14
+
+const str = 'test';
+const arr = [1, 2, 4];
+
+//console.log(arr.length);
+
+//console.dir(Number);
+
+console.log(str.toLowerCase());
+console.log(str.toUpperCase());
+console.log(str);
+
+const fruit = 'Some fruitu';
+console.log(fruit.indexOf('u'));
+
+const logg = 'Hello world'; //total 10 characters
+
+console.log(logg.slice(6, 10));//вырезать от символа х до символа у
+console.log(logg.slice(6));
+console.log(logg.slice(-4, -1));
+
+console.log(logg.substring(6, 10)); //как slice, только без отрицательных, можно первый арг больше чем второй
+
+console.log(logg.substr(6, 4));//вырезать с позиции х количество символов нум
+
+
+const numb = 12.2;
+console.log(Math.round(numb));
+
+const test = '12.2px';
+console.log(parseInt(test));
+console.log(parseFloat(test));
+
