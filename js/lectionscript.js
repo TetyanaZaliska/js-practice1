@@ -1,42 +1,54 @@
 "use strict";
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'green'
-    },
-    makeTest: function() {
-        console.log('Test');
-    }
-};
+//псевдомассивы не имеют методов push, pop, forEach и тд..
 
-options.makeTest();
+const arr = [1, 12, 3, 16, 8];
 
-//деструктуризация
-const {border, bg} = options.colors;
-console.log(border);
+//arr.sort((a, b) => a - b);
+arr.sort(compareNum);
+console.log(arr);
 
-//console.log(Object.keys(options).length);
-// console.log(options.name);
+function compareNum(a, b) {
+    return a - b;
+}
 
-// delete options.name;
-// console.log(options);
+// arr[99] = 0;
+// //arr.length - длина массива состоит из последнего индекса плюс один 
+// //- в данном случае 100
+// console.log(arr.length);
+// console.log(arr);
 
-//для обьектов используем for in, так как он не итерируется
-// let counter = 0;
-// for (let key in options) {
-//     if (typeof(options[key]) === 'object') {
-//         for (let i in options[key]) {
-//             console.log(`[Option ${i} has value ${options[key][i]}]`);
-//             counter++;
-//         }
-//     } else {
-//         console.log(`Option ${key} has value ${options[key]}`);
-//         counter++;
-//     }
+// arr.forEach(function(item, i, arr) {
+//     console.log(`${i}: ${item} in this array: ${arr}`);
+// });
+
+// // arr.pop();
+// // arr.push(10);
+// // arr.shift();
+// // arr.unshift(0);
+
+// // console.log(arr);
+
+// // for (let i = 0; i < arr.length; i++) {
+// //     console.log(arr[i]);
+// // }
+
+// for (let value of arr) {
+//     console.log(value);
 // }
 
-// console.log(counter);
+
+// //отличие forEach от for of - во втором варианте мы можем использовать 
+// //ключевые слова break и continue
+
+
+// const str = prompt('Products divided by ", "', '');
+// //разделяет строку в массив
+// const products = str.split(', ');
+// console.log(products);
+
+// //собирает строку из массива
+// console.log(products.join(': '));
+
+// //изначально метод sort сортирует все как строки (даже числа превращает в строку и сортирует)
+// console.log(products.sort());
