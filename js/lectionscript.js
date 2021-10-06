@@ -1,29 +1,42 @@
 "use strict";
 
-function first() {
-    //do something
-    setTimeout(function() {
-        console.log(1);
-    }, 500);
-}
-function second() {
-    console.log(2);
-}
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'green'
+    },
+    makeTest: function() {
+        console.log('Test');
+    }
+};
 
-first();
-second();
+options.makeTest();
 
-function learnJS(lang, callback) {
-    console.log(`I learn ${lang}`);
-    callback();
-}
+//деструктуризация
+const {border, bg} = options.colors;
+console.log(border);
 
-// learnJS('JavaScript', function() {
-//     console.log('I learned this lesson!');
-// });
+//console.log(Object.keys(options).length);
+// console.log(options.name);
 
-function done() {
-    console.log('I learned this lesson!');
-}
+// delete options.name;
+// console.log(options);
 
-learnJS('JavaScript', done);
+//для обьектов используем for in, так как он не итерируется
+// let counter = 0;
+// for (let key in options) {
+//     if (typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`[Option ${i} has value ${options[key][i]}]`);
+//             counter++;
+//         }
+//     } else {
+//         console.log(`Option ${key} has value ${options[key]}`);
+//         counter++;
+//     }
+// }
+
+// console.log(counter);
