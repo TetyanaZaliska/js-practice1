@@ -1,54 +1,108 @@
 "use strict";
 
-//псевдомассивы не имеют методов push, pop, forEach и тд..
+// let a = 5,
+//     b = a;
 
-const arr = [1, 12, 3, 16, 8];
+// b = b + 5;
+// console.log(b);
+// console.log(a);
 
-//arr.sort((a, b) => a - b);
-arr.sort(compareNum);
-console.log(arr);
+// const obj = {
+//     a: 5,
+//     b: 1
+// };
 
-function compareNum(a, b) {
-    return a - b;
+// const copy = obj;
+
+// copy.a = 10; 
+
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj) {
+    let objCopy = {};
+
+    let key;
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+
+    return objCopy;
 }
 
-// arr[99] = 0;
-// //arr.length - длина массива состоит из последнего индекса плюс один 
-// //- в данном случае 100
-// console.log(arr.length);
-// console.log(arr);
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
 
-// arr.forEach(function(item, i, arr) {
-//     console.log(`${i}: ${item} in this array: ${arr}`);
-// });
+const newNumbers = copy(numbers);
 
-// // arr.pop();
-// // arr.push(10);
-// // arr.shift();
-// // arr.unshift(0);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
 
-// // console.log(arr);
-
-// // for (let i = 0; i < arr.length; i++) {
-// //     console.log(arr[i]);
-// // }
-
-// for (let value of arr) {
-//     console.log(value);
-// }
+console.log(newNumbers);
+console.log(numbers);
 
 
-// //отличие forEach от for of - во втором варианте мы можем использовать 
-// //ключевые слова break и continue
+const add = {
+    d: 17,
+    e: 20
+};
 
+const oneMoreCopy = Object.assign(numbers, add);
+oneMoreCopy.c.x = 111;
+console.log(oneMoreCopy);
+console.log(numbers);
+console.log(newNumbers);
 
-// const str = prompt('Products divided by ", "', '');
-// //разделяет строку в массив
-// const products = str.split(', ');
-// console.log(products);
+const clone = Object.assign({}, add);
 
-// //собирает строку из массива
-// console.log(products.join(': '));
+clone.d = 20;
 
-// //изначально метод sort сортирует все как строки (даже числа превращает в строку и сортирует)
-// console.log(products.sort());
+console.log(add);
+console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[1] = 'sdfsdfs';
+
+console.log(newArray);
+console.log(oldArray);
+
+//...variable - spread для массивов в ES6, для обьектов в ES7
+
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [1, 5, 7];
+
+log(...num);
+
+const array = ['a', 'b'];
+
+const newArray2 = [...array];
+console.log(newArray2);
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
+newObj.one = 11;
+console.log(newObj);
+console.log(q);
