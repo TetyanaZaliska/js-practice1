@@ -43,3 +43,26 @@ link.addEventListener('click', function(event) {
 btns.forEach(btn => {
     btn.addEventListener('click', deleteElement);
 });
+
+// console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body.childNodes);
+// console.log(document.body.firstChild); // текстовая нода тоже может попасть
+// console.log(document.body.firstElementChild); // только элементы без переводов строк
+// console.log(document.body.lastChild);
+
+// console.log(document.querySelector('#btn').parentNode);
+// console.log(document.querySelector('#btn').parentElement);
+ 
+console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+console.log(document.querySelector('[data-current="3"]').previousElementSibling);
+console.log(document.querySelector('[data-current="3"]').nextSibling);
+console.log(document.querySelector('[data-current="3"]').previousSibling);
+
+// for (let node of document.body.childNodes) {
+//     if (node.nodeName == '#text') {
+//         continue;
+//     }
+
+//     console.log(node);
+// }
